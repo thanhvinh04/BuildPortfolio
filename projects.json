@@ -1,0 +1,47 @@
+[
+  {
+    "id": "sarcasm",
+    "title": "Sarcasm Detection (Multimodal)",
+    "short_desc": "Mô hình phát hiện sarcasm dựa trên ảnh + văn bản.",
+    "long_desc": "Mô tả chi tiết ...",
+    "dataset": "Nguồn: internal / synthetic",
+    "tools": ["Python", "CLIP", "TensorFlow"],
+    "process": "Preprocess -> CLIP embeddings -> train -> deploy",
+    "results": "AUC=0.89",
+    "thumbnail": "assets/thumbnails/sarcasm_thumb.jpg",
+    "image_assets": [],
+    "code_example_raw": "https://github.com/thanhvinh04/Projects/blob/main/Sarcasm%20Detection/3.%20MODEL.ipynb",
+    "notebook_github": "https://github.com/thanhvinh04/Projects/blob/main/Sarcasm%20Detection",
+    "report_pdf": ""
+  },
+  {
+    "id": "database",
+    "title": "English Center Database Design",
+    "short_desc": "Thiết kế cơ sở dữ liệu cho Trung tâm Anh Ngữ",
+    "long_desc": "Mô tả chi tiết ...",
+    "dataset": "Nguồn: internal / synthetic",
+    "tools": ["SQL", "ERD", "Data Modelling"],
+    "process": "Business Description -> Data Flow -> Modelling -> Trigger -> Deploy",
+    "results": "Database",
+    "thumbnail": "assets/thumbnails/databasediagram.jpg",
+    "image_assets": [],
+    "code_example_raw": "https://github.com/thanhvinh04/Projects/blob/main/Database/Script-SQL.sql",
+    "notebook_github": "https://github.com/thanhvinh04/Projects/tree/main/Database",
+    "report_pdf": "https://github.com/thanhvinh04/Projects/blob/main/Database/Report"
+  },
+  {
+    "id": "movietheatre",
+    "title": "Movie Theatre Dashboard",
+    "short_desc": "Đề tài \"Phân tích dữ liệu rạp chiếu phim\" nhằm mục tiêu khai thác và phân tích các nguồn dữ liệu như lịch chiếu, doanh thu bán vé, chi tiết các vé bán và các loại hình phim để cung cấp thông tin hỗ trợ quá trình ra quyết định.",
+    "long_desc": "Mô tả chi tiết ...",
+    "dataset": "Nguồn: internal / synthetic",
+    "tools": ["Excel", "Power BI", "Python"],
+    "process": "Business Need -> Data Processing -> Data Visualization",
+    "results": "Insight",
+    "thumbnail": "assets/thumbnails/movietheatre.jpg",
+    "image_assets": [],
+    "code_example_raw": "https://github.com/thanhvinh04/Projects/blob/main/Movie%20Theatre%20Dashboard/Segmentation/SEGMENTATION.ipynb",
+    "notebook_github": "https://github.com/thanhvinh04/Projects/tree/main/Movie%20Theatre%20Dashboard",
+    "report_pdf": "https://github.com/thanhvinh04/Projects/blob/main/Movie%20Theatre%20Dashboard/MOVIE%20THEATRE%20DASHBOARD.pdf"
+  }
+]
