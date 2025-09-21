@@ -27,28 +27,47 @@ with st.sidebar:
         st.warning("Avatar image not found.")
 
     st.title("Menu")
-    if st.button("🏠 Home"):
+
+    btn_style = """
+    <style>
+    .sidebar-btn {
+        width: 100%;
+        display: block;
+        padding: 0.7em 0;
+        margin-bottom: 0.5em;
+        background: #f0f2f6;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1em;
+        text-align: left;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .sidebar-btn:hover {
+        background: #e0e4ea;
+    }
+    </style>
+    """
+    st.markdown(btn_style, unsafe_allow_html=True)
+
+    # Streamlit buttons với style CSS
+    if st.button("🏠 Home", key="home"):
         st.session_state.page = "home"
         st.session_state.project_id = None
-
-    if st.button("ℹ️ About"):
+    if st.button("ℹ️ About", key="about"):
         st.session_state.page = "about"
         st.session_state.project_id = None
-
-    if st.button("📂 Projects"):
+    if st.button("📂 Projects", key="projects"):
         st.session_state.page = "projects"
         st.session_state.project_id = None
-
-    if st.button("📄 Resume"):
+    if st.button("📄 Resume", key="resume"):
         st.session_state.page = "resume"
         st.session_state.project_id = None
-
-    if st.button("✉️ Contact"):
+    if st.button("✉️ Contact", key="contact"):
         st.session_state.page = "contact"
         st.session_state.project_id = None
 
     st.markdown("---")
-    # quick search
     q_input = st.text_input("🔎 Tìm kiếm project", value=st.session_state.get("query", ""))
     if st.button("Tìm"):
         st.session_state.query = q_input or ""
