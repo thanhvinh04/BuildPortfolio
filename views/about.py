@@ -1,15 +1,33 @@
 # pages/about.py
 import streamlit as st
+from utils.helpers import load_settings
+from pathlib import Path
 
 def app():
-    st.title("ℹ️ About me")
-    st.markdown("**Nguyễn Thành Vinh** — Data Analyst / Machine Learning Engineer")
-    st.write("""
-    - **Học vấn:** Cử nhân Khoa học máy tính (viết chi tiết)
-    - **Kinh nghiệm:** Analytics, Computer Vision, OCR pipeline
-    - **Kỹ năng:** Python, SQL, TensorFlow, PyTorch, CLIP, EasyOCR, Power BI
-    - **Mục tiêu:** Trở thành Data Scientist chuyên sâu về computer vision và analytics cho ngành bán lẻ
-    """)
+    settings = load_settings().get("about", {})
+
+    title = settings.get("title", "ℹ️ About me")
+    name = settings.get("name", "Your Name")
+    role = settings.get("role", "")
+    details = settings.get("details", [])
+    tips_title = settings.get("tips_title", "Portfolio tips")
+    tips = settings.get("tips", [])
+
+    st.title(title)
+    st.markdown(f"**{name}** — {role}")
+
     st.markdown("---")
-    st.subheader("Portfolio tips")
-    st.write("- 3–5 project chất lượng > 10 project sơ sài.\n- Storytelling: Dataset -> Tools -> Process -> Result.\n- Thêm ảnh dashboard, chart, screenshot code.")
+    if details:
+        for line in details:
+            # details may contain Markdown formatting
+            st.markdown(f"- {line}")
+    else:
+        st.write("Chưa có thông tin chi tiết. Cập nhật `settings.json` để thay đổi nội dung.")
+
+    st.markdown("---")
+    st.subheader(tips_title)
+    if tips:
+        for t in tips:
+            st.markdown(f"- {t}")
+    else:
+        st.write("No tips provided.")

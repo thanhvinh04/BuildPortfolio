@@ -1,0 +1,47 @@
+{
+  "home": {
+    "title": "Nguyễn Thành Vinh — Portfolio",
+    "subtitle": "Data Analyst / Analytics Engineering",
+    "description": "Xin chào! Mình xây dựng các pipeline OCR, mô hình ML, dashboards và các sản phẩm analytics.",
+    "image": "assets/images/background.jpg",
+    "how_to_browse": [
+      "Vào **Projects** để lướt nhanh.",
+      "Bấm **Xem chi tiết** để mở trang project riêng.",
+      "Tải CV ở tab **Resume**."
+    ]
+  },
+
+  "about": {
+    "title": "ℹ️ About me",
+    "name": "Nguyễn Thành Vinh",
+    "role": "Data Analyst / Machine Learning Engineer",
+    "details": [
+      "**Học vấn:** Cử nhân Khoa học máy tính (viết chi tiết)",
+      "**Kinh nghiệm:** Analytics, Computer Vision, OCR pipeline",
+      "**Kỹ năng:** Python, SQL, TensorFlow, PyTorch, CLIP, EasyOCR, Power BI",
+      "**Mục tiêu:** Trở thành Data Scientist chuyên sâu về computer vision và analytics cho ngành bán lẻ"
+    ],
+    "tips_title": "Portfolio tips",
+    "tips": [
+      "3–5 project chất lượng > 10 project sơ sài.",
+      "Storytelling: Dataset -> Tools -> Process -> Result.",
+      "Thêm ảnh dashboard, chart, screenshot code."
+    ]
+  },
+
+  "projects_page": {
+    "title": "📂 Projects",
+    "empty_message": "Không tìm thấy project phù hợp"
+  },
+
+  "resume": {
+    "path": "assets/resume/Data Analyst_Analytics Engineering.pdf",
+    "title": "Data Analyst / Analytics Engineering CV"
+  },
+
+  "contact": {
+    "email": "nguyenthanhvinh1234qn@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/thanhvinh04/",
+    "github": "https://github.com/thanhvinh04"
+  }
+}

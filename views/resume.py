@@ -2,10 +2,16 @@
 import streamlit as st
 from pathlib import Path
 import base64
+from utils.helpers import load_settings
 
 def app():
-    st.title("📄 Resume / CV")
-    resume_path = Path("assets/resume/Data Analyst_Analytics Engineering.pdf")
+    settings = load_settings()
+    resume_cfg = settings.get("resume", {})
+
+    resume_path = Path(resume_cfg.get("path", "assets/resume/Data Analyst_Analytics Engineering.pdf"))
+    resume_title = resume_cfg.get("title", "Resume / CV")
+
+    st.title(f"📄 {resume_title}")
 
     if resume_path.exists():
         # Hiển thị nút tải về
@@ -27,4 +33,4 @@ def app():
         st.markdown(pdf_display, unsafe_allow_html=True)
 
     else:
-        st.warning("⚠️ CV chưa có. Đặt file vào assets/resume/Data Analyst_Analytics Engineering.pdf")
+        st.warning(f"⚠️ CV chưa có. Hãy đặt file vào `{resume_path}`")
