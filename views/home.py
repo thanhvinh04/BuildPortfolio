@@ -26,17 +26,19 @@ def _render_html_carousel(image_urls: typing.List[str], height: int = 420, autop
     html_code = f"""
         <style>
         .carousel{{
-            position:relative;
-            overflow:hidden;
-            max-width:100%;   /* tăng từ 100% lên 120% */
-            width:100%;       /* thêm để chắc chắn */
-            height:{height}px;
-            border-radius:10px;
-            box-shadow:0 8px 24px rgba(0,0,0,0.12);
+            position: relative;
+            overflow: hidden;
+            max-width: 12000;  /* giới hạn tối đa */
+            width: 100%;
+            margin: 0 auto;      /* căn giữa carousel */
+            height: 500;
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            font-size: 16px;     /* cố định kích thước chữ */
         }}
         .carousel .slides{{display:flex;transition:transform .6s ease; height:100%;}}
         .carousel .slide{{min-width:100%; display:flex;align-items:center;justify-content:center;background:#fffde7;}}
-        .carousel img{{max-width:110%; max-height:100%; object-fit:contain;}}  /* tăng max-width */
+        .carousel img{{max-width:100%; max-height:100%; object-fit:contain;background-color: #fdfac6;}}  /* tăng max-width */
         .carousel .nav{{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 8px;box-sizing:border-box;}}
         .carousel button.arrow{{background:rgba(0,0,0,0.4);border:none;color:white;padding:8px 10px;border-radius:6px;cursor:pointer;}}
         .carousel .dots{{position:absolute;left:50%;transform:translateX(-50%);bottom:8px;display:flex;gap:6px}}
