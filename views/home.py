@@ -4,6 +4,7 @@ from pathlib import Path
 from utils.helpers import load_settings
 import html
 import typing
+from PIL import Image
 
 def _is_url(s: str) -> bool:
     return s.startswith("http://") or s.startswith("https://")
@@ -226,11 +227,31 @@ def app():
             img = slides[idx]
             p = Path(img)
             if p.exists():
-                st.image(str(p), use_column_width=True)
+                max_height = 420  # chiều cao khung carousel
+                img_obj = Image.open(p)
+                # resize ảnh nếu quá cao
+                w, h = img_obj.size
+                if h > max_height:
+                    ratio = max_height / h
+                    w_new = int(w * ratio)
+                    h_new = max_height
+                    img_obj = img_obj.resize((w_new, h_new), Image.ANTIALIAS)
+
+                st.image(img_obj)
             else:
                 # try as URL
                 try:
-                    st.image(img, use_column_width=True)
+                    max_height = 420  # chiều cao khung carousel
+                    img_obj = Image.open(p)
+                    # resize ảnh nếu quá cao
+                    w, h = img_obj.size
+                    if h > max_height:
+                        ratio = max_height / h
+                        w_new = int(w * ratio)
+                        h_new = max_height
+                        img_obj = img_obj.resize((w_new, h_new), Image.ANTIALIAS)
+
+                    st.image(img_obj)
                 except Exception:
                     st.error(f"Không tìm thấy ảnh: {img}")
 
