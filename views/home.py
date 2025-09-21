@@ -24,88 +24,152 @@ def _render_html_carousel(image_urls: typing.List[str], height: int = 420, autop
     autoplay_attr = "true" if autoplay else "false"
     # Simple carousel CSS + JS (no external libs). Will show images centered + arrows + dots.
     html_code = f"""
-        <style>
-        .carousel{{
-            position: relative;
-            overflow: hidden;
-            max-width: 12000;  /* giới hạn tối đa */
-            width: 100%;
-            margin: 0 auto;      /* căn giữa carousel */
-            height: 500;
-            border-radius: 10px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-            font-size: 16px;     /* cố định kích thước chữ */
-        }}
-        .carousel .slides{{display:flex;transition:transform .6s ease; height:100%;}}
-        .carousel .slide{{min-width:100%; display:flex;align-items:center;justify-content:center;background:#fffde7;}}
-        .carousel img{{max-width:100%; max-height:100%; object-fit:contain;background-color: #fdfac6;}}  /* tăng max-width */
-        .carousel .nav{{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 8px;box-sizing:border-box;}}
-        .carousel button.arrow{{background:rgba(0,0,0,0.4);border:none;color:white;padding:8px 10px;border-radius:6px;cursor:pointer;}}
-        .carousel .dots{{position:absolute;left:50%;transform:translateX(-50%);bottom:8px;display:flex;gap:6px}}
-        .carousel .dot{{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer}}
-        .carousel .dot.active{{background:white}}
-        </style>
+    <style>
+    /* Wrapper để căn giữa carousel */
+    .carousel-wrapper {{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }}
 
+    /* Carousel chính */
+    .carousel {{
+        position: relative;
+        overflow: hidden;
+        max-width: 1200px;   /* giới hạn chiều rộng tối đa */
+        width: 100%;
+        height: {height}px;   /* chiều cao carousel */
+        border-radius: 10px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        font-size: 16px;
+        background-color: #fdfac6; /* màu vàng nhạt hiển thị padding */
+    }}
+
+    .carousel .slides {{
+        display: flex;
+        transition: transform .6s ease;
+        height: 100%;       /* slides co theo carousel */
+    }}
+
+    .carousel .slide {{
+        min-width: 100%;
+        height: 100%;       /* slide co theo carousel */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fdfac6; /* padding màu vàng nhạt */
+    }}
+
+    .carousel img {{
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;    /* giữ tỉ lệ ảnh */
+        background-color: #fdfac6;
+    }}
+
+    .carousel .nav {{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 8px;
+        box-sizing: border-box;
+    }}
+
+    .carousel button.arrow {{
+        background: rgba(0,0,0,0.4);
+        border: none;
+        color: white;
+        padding: 8px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+    }}
+
+    .carousel .dots {{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 8px;
+        display: flex;
+        gap: 6px;
+    }}
+
+    .carousel .dot {{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.5);
+        cursor: pointer;
+    }}
+
+    .carousel .dot.active {{
+        background: white;
+    }}
+    </style>
+
+    <div class="carousel-wrapper">
     <div class="carousel" id="streamlit-carousel">
-      <div class="slides" id="slides">
+        <div class="slides" id="slides">
         {slides_html}
-      </div>
-      <div class="nav">
+        </div>
+        <div class="nav">
         <button class="arrow" id="prev">&#10094;</button>
         <button class="arrow" id="next">&#10095;</button>
-      </div>
-      <div class="dots" id="dots"></div>
+        </div>
+        <div class="dots" id="dots"></div>
+    </div>
     </div>
 
     <script>
-    (()=>{{
-      const slidesEl = document.getElementById("slides");
-      const dotsEl = document.getElementById("dots");
-      const slidesCount = {len(image_urls)};
-      let idx = 0;
-      const interval = {interval};
-      let timer = null;
+    (() => {{
+    const slidesEl = document.getElementById("slides");
+    const dotsEl = document.getElementById("dots");
+    const slidesCount = {len(image_urls)};
+    let idx = 0;
+    const interval = {interval};
+    let timer = null;
 
-      function renderDots() {{
+    function renderDots() {{
         dotsEl.innerHTML = "";
         for(let i=0;i<slidesCount;i++) {{
-          const d = document.createElement("div");
-          d.className = "dot" + (i===0?" active":"");
-          d.dataset.i = i;
-          d.onclick = (e)=>{{ goTo(parseInt(e.target.dataset.i)); }};
-          dotsEl.appendChild(d);
+        const d = document.createElement("div");
+        d.className = "dot" + (i===0?" active":"");
+        d.dataset.i = i;
+        d.onclick = (e) => {{ goTo(parseInt(e.target.dataset.i)); }};
+        dotsEl.appendChild(d);
         }}
-      }}
+    }}
 
-      function update() {{
+    function update() {{
         slidesEl.style.transform = `translateX(${{-idx * 100}}%)`;
         const ds = dotsEl.querySelectorAll(".dot");
         ds.forEach((d,i)=> d.classList.toggle("active", i===idx));
-      }}
+    }}
 
-      function next() {{ idx = (idx+1) % slidesCount; update(); }}
-      function prev() {{ idx = (idx-1+slidesCount) % slidesCount; update(); }}
-      function goTo(i) {{ idx = i % slidesCount; update(); }}
+    function next() {{ idx = (idx+1) % slidesCount; update(); }}
+    function prev() {{ idx = (idx-1+slidesCount) % slidesCount; update(); }}
+    function goTo(i) {{ idx = i % slidesCount; update(); }}
 
-      document.getElementById("next").addEventListener("click", ()=>{{ stopTimer(); next(); startTimer(); }});
-      document.getElementById("prev").addEventListener("click", ()=>{{ stopTimer(); prev(); startTimer(); }});
+    document.getElementById("next").addEventListener("click", ()=>{{ stopTimer(); next(); startTimer(); }});
+    document.getElementById("prev").addEventListener("click", ()=>{{ stopTimer(); prev(); startTimer(); }});
 
-      function startTimer() {{
+    function startTimer() {{
         if ({'true' if autoplay else 'false'}) {{
-          stopTimer();
-          timer = setInterval(next, interval);
+        stopTimer();
+        timer = setInterval(next, interval);
         }}
-      }}
-      function stopTimer() {{ if (timer) {{ clearInterval(timer); timer = null; }} }}
+    }}
+    function stopTimer() {{ if (timer) {{ clearInterval(timer); timer = null; }} }}
 
-      renderDots();
-      update();
-      startTimer();
+    renderDots();
+    update();
+    startTimer();
 
-      // pause on hover
-      const carousel = document.getElementById("streamlit-carousel");
-      carousel.addEventListener("mouseenter", stopTimer);
-      carousel.addEventListener("mouseleave", startTimer);
+    const carousel = document.getElementById("streamlit-carousel");
+    carousel.addEventListener("mouseenter", stopTimer);
+    carousel.addEventListener("mouseleave", startTimer);
     }})();
     </script>
     """
