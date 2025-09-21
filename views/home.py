@@ -24,17 +24,25 @@ def _render_html_carousel(image_urls: typing.List[str], height: int = 420, autop
     autoplay_attr = "true" if autoplay else "false"
     # Simple carousel CSS + JS (no external libs). Will show images centered + arrows + dots.
     html_code = f"""
-    <style>
-    .carousel{{position:relative;overflow:hidden;max-width:100%;height:{height}px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.12);}}
-    .carousel .slides{{display:flex;transition:transform .6s ease; height:100%;}}
-    .carousel .slide{{min-width:100%;display:flex;align-items:center;justify-content:center;background:#111;}}
-    .carousel img{{max-width:100%; max-height:100%; object-fit:contain;}}
-    .carousel .nav{{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 8px;box-sizing:border-box;}}
-    .carousel button.arrow{{background:rgba(0,0,0,0.4);border:none;color:white;padding:8px 10px;border-radius:6px;cursor:pointer;}}
-    .carousel .dots{{position:absolute;left:50%;transform:translateX(-50%);bottom:8px;display:flex;gap:6px}}
-    .carousel .dot{{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer}}
-    .carousel .dot.active{{background:white}}
-    </style>
+        <style>
+        .carousel{{
+            position:relative;
+            overflow:hidden;
+            max-width:100%;   /* tăng từ 100% lên 120% */
+            width:100%;       /* thêm để chắc chắn */
+            height:{height}px;
+            border-radius:10px;
+            box-shadow:0 8px 24px rgba(0,0,0,0.12);
+        }}
+        .carousel .slides{{display:flex;transition:transform .6s ease; height:100%;}}
+        .carousel .slide{{min-width:100%; display:flex;align-items:center;justify-content:center;background:#fffde7;}}
+        .carousel img{{max-width:110%; max-height:100%; object-fit:contain;}}  /* tăng max-width */
+        .carousel .nav{{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 8px;box-sizing:border-box;}}
+        .carousel button.arrow{{background:rgba(0,0,0,0.4);border:none;color:white;padding:8px 10px;border-radius:6px;cursor:pointer;}}
+        .carousel .dots{{position:absolute;left:50%;transform:translateX(-50%);bottom:8px;display:flex;gap:6px}}
+        .carousel .dot{{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.5);cursor:pointer}}
+        .carousel .dot.active{{background:white}}
+        </style>
 
     <div class="carousel" id="streamlit-carousel">
       <div class="slides" id="slides">
@@ -128,8 +136,7 @@ def app():
         # check types
         all_urls = all(_is_url(s) for s in slides)
         st.markdown("---")
-        st.markdown("### Highlights")
-        st.write("Giới thiệu bản thân")
+        st.markdown("### My Journey")
         if all_urls:
             # HTML carousel with autoplay (best UX) for public URLs
             autoplay = settings.get("slides_autoplay", True)

@@ -2,7 +2,7 @@
   {
     "id": "sarcasm",
     "title": "Sarcasm Detection (Multimodal)",
-    "short_desc": "Mô hình phát hiện sarcasm dựa trên ảnh + văn bản.",
+    "short_desc": "Mô hình phát hiện sarcasm: phân tích tính mỉa mai trong bài viết và hình ảnh trên các nền tảng media.",
     "long_desc": "Mô tả chi tiết ...",
     "dataset": "Nguồn: internal / synthetic",
     "tools": ["Python", "CLIP", "TensorFlow"],
@@ -16,7 +16,7 @@
   },
   {
     "id": "database",
-    "title": "English Center Database Design",
+    "title": "English Center Database",
     "short_desc": "Thiết kế cơ sở dữ liệu cho Trung tâm Anh Ngữ",
     "long_desc": "Mô tả chi tiết ...",
     "dataset": "Nguồn: internal / synthetic",
@@ -31,7 +31,7 @@
   },
   {
     "id": "movietheatre",
-    "title": "Movie Theatre Dashboard",
+    "title": "Movie Theatre Analytics",
     "short_desc": "Đề tài \"Phân tích dữ liệu rạp chiếu phim\" nhằm mục tiêu khai thác và phân tích các nguồn dữ liệu như lịch chiếu, doanh thu bán vé, chi tiết các vé bán và các loại hình phim để cung cấp thông tin hỗ trợ quá trình ra quyết định.",
     "long_desc": "Mô tả chi tiết ...",
     "dataset": "Nguồn: internal / synthetic",

@@ -63,7 +63,7 @@ def app(projects, pid: str):
     p = next((x for x in projects if str(x.get("id")) == str(pid)), None)
     if p is None:
         st.error("Không tìm thấy project.")
-        if st.button("Quay lại Projects", key="back_from_missing"):
+        if st.button("Quay lại", key="back_from_missing"):
             st.session_state.page = "projects"
             st.session_state.project_id = None
         return
@@ -74,7 +74,7 @@ def app(projects, pid: str):
         st.session_state.project_id = None
 
     # Nút quay lại ở đầu trang (dùng on_click để chắc chắn)
-    st.button("⬅ Quay lại Projects", key=f"back_btn_top_{pid}", on_click=go_back)
+    st.button("⬅ Quay lại", key=f"back_btn_top_{pid}", on_click=go_back)
 
     st.title(p.get("title", "Untitled"))
     st.write(p.get("long_desc", ""))
@@ -146,4 +146,4 @@ print("Replace with your code snippet or set 'code_example_local' in projects.js
 
     st.markdown("---")
     # Nút quay lại ở cuối trang (dùng on_click)
-    st.button("⬅ Quay lại Projects", key=f"back_btn_{pid}", on_click=go_back)
+    st.button("⬅ Quay lại", key=f"back_btn_{pid}", on_click=go_back)

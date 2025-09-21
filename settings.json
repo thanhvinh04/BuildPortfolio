@@ -2,7 +2,7 @@
   "home": {
     "title": "Nguyễn Thành Vinh",
     "subtitle": "Data Analyst / Analytics Engineering",
-    "description": "Xin chào! Mình xây dựng các pipeline OCR, mô hình ML, dashboards...",
+    "description": "Xin chào! Đây là trang giới thiệu về mình. Hãy xem các slide bên dưới để biết thêm chi tiết.",
     "image": "assets/images/background.jpg",
     "how_to_browse": [
       "Vào **Projects** để lướt nhanh.",
@@ -10,13 +10,12 @@
       "Tải CV ở tab **Resume**."
     ],
     "slides": [
-      "https://raw.githubusercontent.com/thanhvinh04/BuildPortfolio/main/assets/slides/slide1.jpg",
-      "https://raw.githubusercontent.com/thanhvinh04/BuildPortfolio/main/assets/slides/slide2.jpg",
-      "https://raw.githubusercontent.com/thanhvinh04/BuildPortfolio/main/assets/slides/slide3.jpg"
+      "https://raw.githubusercontent.com/thanhvinh04/BuildPortfolio/main/assets/slides/Avatar.jpg",
+      "https://raw.githubusercontent.com/thanhvinh04/BuildPortfolio/main/assets/slides/Ảnh đại diện 2.jpg"
     ],
     "slides_autoplay": true,
     "slides_interval_ms": 3500,
-    "slides_height": 420
+    "slides_height": 900
   },
 
   "about": {
