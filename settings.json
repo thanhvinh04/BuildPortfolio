@@ -10,29 +10,30 @@
       "Tải CV ở tab **Resume**."
     ],
     "slides": [
-      "https://raw.githubusercontent.com/thanhvinh04/BuildPortfolio/main/assets/slides/Avatar.jpg",
-      "https://raw.githubusercontent.com/thanhvinh04/BuildPortfolio/main/assets/slides/Ảnh đại diện 2.jpg"
+      "https://raw.githubusercontent.com/thanhvinh04/BuildPortfolio/main/assets/images/Slide1.png",
+      "https://raw.githubusercontent.com/thanhvinh04/BuildPortfolio/main/assets/images/Slide2.png",
+      "https://raw.githubusercontent.com/thanhvinh04/BuildPortfolio/main/assets/images/Slide3.png",
+      "https://raw.githubusercontent.com/thanhvinh04/BuildPortfolio/main/assets/images/Slide4.png",
+      "https://raw.githubusercontent.com/thanhvinh04/BuildPortfolio/main/assets/images/Slide5.png",
+      "https://raw.githubusercontent.com/thanhvinh04/BuildPortfolio/main/assets/images/Slide6.png"
     ],
     "slides_autoplay": true,
-    "slides_interval_ms": 3500,
+    "slides_interval_ms": 5000,
     "slides_height": 900
   },
 
   "about": {
     "title": "ℹ️ About me",
     "name": "Nguyễn Thành Vinh",
-    "role": "Data Analyst / Machine Learning Engineer",
+    "role": "Data Analyst / Analytics Engineering",
     "details": [
-      "**Học vấn:** Cử nhân Khoa học máy tính (viết chi tiết)",
-      "**Kinh nghiệm:** Analytics, Computer Vision, OCR pipeline",
-      "**Kỹ năng:** Python, SQL, TensorFlow, PyTorch, CLIP, EasyOCR, Power BI",
-      "**Mục tiêu:** Trở thành Data Scientist chuyên sâu về computer vision và analytics cho ngành bán lẻ"
+      "**Học vấn:** Cử nhân Khoa học dữ liệu (GPA 3.9/4.0)",
+      "**Kinh nghiệm:** Analytics, Data Pipeline with Python/C#/SSIS, ML, DL...",
+      "**Kỹ năng:** Python, SQL, Power BI/Looker Studio, Excel, GA4/GTM, C#, SSIS",
+      "**Mục tiêu:** Trở thành Data Scientist"
     ],
-    "tips_title": "Portfolio tips",
+    "tips_title": "",
     "tips": [
-      "3–5 project chất lượng > 10 project sơ sài.",
-      "Storytelling: Dataset -> Tools -> Process -> Result.",
-      "Thêm ảnh dashboard, chart, screenshot code."
     ]
   },
 

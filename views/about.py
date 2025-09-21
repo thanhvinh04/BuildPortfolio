@@ -24,10 +24,10 @@ def app():
     else:
         st.write("Chưa có thông tin chi tiết. Cập nhật `settings.json` để thay đổi nội dung.")
 
-    st.markdown("---")
-    st.subheader(tips_title)
-    if tips:
-        for t in tips:
-            st.markdown(f"- {t}")
-    else:
-        st.write("No tips provided.")
+    # st.markdown("---")
+    # st.subheader(tips_title)
+    # if tips:
+    #     for t in tips:
+    #         st.markdown(f"- {t}")
+    # else:
+    #     st.write("No tips provided.")
