@@ -28,6 +28,14 @@ def st_pdf(pdf_path_or_url, width="100%", height=800):
         pdf_bytes = p.read_bytes()
         file_name = p.name
 
+    # Download button nằm trên cùng
+    st.download_button(
+        label="📥 Tải CV",
+        data=pdf_bytes,
+        file_name=file_name,
+        mime="application/pdf"
+    )
+
     # Embed PDF trực tiếp bằng Base64
     b64_pdf = base64.b64encode(pdf_bytes).decode("utf-8")
     pdf_display = f"""
@@ -37,13 +45,6 @@ def st_pdf(pdf_path_or_url, width="100%", height=800):
     """
     st.markdown(pdf_display, unsafe_allow_html=True)
 
-    # Download button
-    st.download_button(
-        label="📥 Tải CV",
-        data=pdf_bytes,
-        file_name=file_name,
-        mime="application/pdf"
-    )
 
 def app():
     settings = load_settings()
